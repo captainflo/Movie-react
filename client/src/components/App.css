@@ -1,5 +1,27 @@
 body{
   font-family: 'Montserrat', sans-serif;
+  background: #141414;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #232526, #141414);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #232526, #141414); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff
+}
+
+/* Navbar */
+nav{
+  background-color: transparent  !important;
+}
+/* Signin */
+.box-input-signin{
+  display: block;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box-input-signin input{
+  color: #fff
+}
+.btn-signin{
+  width: 45%;
 }
 
 /* UserShow */

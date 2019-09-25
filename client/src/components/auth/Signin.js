@@ -2,67 +2,75 @@ import React from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 import { reduxForm, Field } from "redux-form";
 import * as actions from "../actions";
 import "./Signin.css";
 
 class Signin extends React.Component {
   onSubmit = (formProps) => {
-    this.props.signin(formProps, () => {
-      this.props.history.push(`/`);
-    });
+    this.props.signin(formProps, ()=> this.props.history.push(`/`));
   };
 
   render() {
     const { handleSubmit } = this.props;
 
     return (
-      <div>
+      <div className='container'>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <h4 className="center">Sign in <i className="fas fa-user-alt"></i></h4>
-
-            <div className="input-field">
-              <div style={{color: 'red', marginLeft: '45px'}}>{this.props.errorMessage}</div>
-              <i className="material-icons prefix">email</i>
-                <Field
-                  name="email"
-                  type="text"
-                  component="input"
-                  autoComplete="none"
-                  placeholder="email"
-                />
+            <div className='row'>
+              <div className='col m12'>
+                <div className='box-input-signin'>
+                  <div className="input-field">
+                    <div style={{color: 'red', marginLeft: '45px'}}>{this.props.errorMessage}</div>
+                    <i className="material-icons prefix">email</i>
+                      <Field
+                        name="email"
+                        type="text"
+                        component="input"
+                        autoComplete="none"
+                        placeholder="email"
+                      />
+                  </div>
+                </div>
+              </div>
+              <div className='col m12'>
+                <div className='box-input-signin'>
+                  <div className="input-field">
+                    <i className="material-icons prefix">lock</i>
+                    <Field
+                      name="password"
+                      type="password"
+                      component="input"
+                      autoComplete="none"
+                      placeholder="password"
+                    />
+                  </div>
+                </div>   
+              </div>
             </div>
-
-           
-          <div className="input-field">
-            <i className="material-icons prefix">lock</i>
-              <Field
-                name="password"
-                type="password"
-                component="input"
-                autoComplete="none"
-                placeholder="password"
-              />
-          </div>
-          <button className="waves-effect waves-light btn">
-            <i className="material-icons right">cloud</i>Sign In
-          </button>
+            <div className="center">
+              <button className="waves-effect waves-light btn btn-signin">Sign In</button>
+            </div><br></br>
         </form>
-        <ul>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/google" className="waves-effect waves-light btn social google">
-          <i className="fab fa-google"></i> Sign in with google</a></li>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/linkedin" className="waves-effect waves-light btn social linkedin">
-          <i className="fab fa-linkedin"></i> Sign in with linkedin</a></li>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href='/auth/facebook'className="waves-effect waves-light btn social facebook">
-          <i className="fab fa-facebook"></i> Sign in with facebook</a></li>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/instagram" className="waves-effect waves-light btn social instagram">
-          <i className="fab fa-instagram"></i> Sign in with instagram</a></li>
-      </ul>
-      <div className="center">
-        <Link to='/signup'>
-          You don't have a Account? Sign up!
-        </Link>
-      </div>
+        <div className="center">
+           Or 
+          <p>Login with</p>
+          <ul>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/google" className="waves-effect waves-light btn social google">
+            <i className="fab fa-google"></i>Google</a></li>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/linkedin" className="waves-effect waves-light btn social linkedin">
+            <i className="fab fa-linkedin"></i>Linkedin</a></li>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href='/auth/facebook'className="waves-effect waves-light btn social facebook">
+            <i className="fab fa-facebook"></i>Facebook</a></li>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/instagram" className="waves-effect waves-light btn social instagram">
+            <i className="fab fa-instagram"></i>Instagram</a></li>
+          </ul>
+          <Link to='/signup'>
+            You don't have a Account? Sign up!
+          </Link>
+        </div>
       </div>
     );
   }
@@ -77,6 +85,7 @@ function mapStateToPros(state) {
 }
 
 export default compose(
+  withRouter,
   connect(
     mapStateToPros,
     actions,

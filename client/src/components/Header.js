@@ -36,7 +36,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
             <Link className="brand-logo" to="/">

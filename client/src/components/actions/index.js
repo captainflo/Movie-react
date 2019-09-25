@@ -21,6 +21,7 @@ export const signup = (formProps, callback) => async dispatch => {
       };
       const response = await axios.get(`/api/user/${data.id}`);
       dispatch({ type: AUTH_USER, payload: response.data });
+      callback(); /* history callback */
     } else {
       token = null;
     }
@@ -47,6 +48,7 @@ export const signin = (formProps, callback) => async dispatch => {
       };
       const response = await axios.get(`/api/user/${data.id}`);
       dispatch({ type: AUTH_USER, payload: response.data });
+      callback(); /* history callback */
     } else {
       token = null;
     }

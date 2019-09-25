@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
 class Signup extends React.Component {
   state = {
@@ -50,9 +51,7 @@ class Signup extends React.Component {
     }
     
     if(checkPassword  === true && checkEmail === true && formProps.password === this.state.passwordConfirm){
-      this.props.signup(formProps, () => {
-        this.props.history.push("/");
-      });
+      this.props.signup(formProps, ()=> this.props.history.push(`/`));
     }
   };
 
@@ -133,6 +132,7 @@ function mapStateToPros(state) {
 }
 
 export default compose(
+  withRouter,
   connect(
     mapStateToPros,
     actions

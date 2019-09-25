@@ -59,69 +59,82 @@ class Signup extends React.Component {
     const { handleSubmit } = this.props;
   
     return (
-      <div>
+      <div className='container'>
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <h4 className="center">
             Sign Up <i className="fas fa-user-plus" />
           </h4>
-          <div className="input-field">
-            <div style={{color: 'red', marginLeft: '45px'}}>{this.props.errorMessage}</div>
-            <div style={{color: 'red', marginLeft: '45px'}}>{this.state.errorEmail}</div>
-            <i className="material-icons prefix">email</i>
-            <Field
-              name="email"
-              type="text"
-              component="input"
-              autoComplete="none"
-              placeholder="email"
-              required
-            />
+          <div className='row'>
+            <div className='col m12 s12'>
+              <div className='box-input-signin'>
+                <div className="input-field">
+                  <div style={{color: 'red', marginLeft: '45px'}}>{this.props.errorMessage}</div>
+                  <div style={{color: 'red', marginLeft: '45px'}}>{this.state.errorEmail}</div>
+                  <i className="material-icons prefix">email</i>
+                  <Field
+                    name="email"
+                    type="text"
+                    component="input"
+                    autoComplete="none"
+                    placeholder="email"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='col m12 s12'>
+              <div className='box-input-signin'>
+                <div className="input-field">
+                  <div style={{color: 'red', marginLeft: '45px'}}>{this.state.validPassword}</div>
+                  <i className="material-icons prefix">lock</i>
+                  <Field
+                    name="password"
+                    type="text"
+                    component="input"
+                    autoComplete="none"
+                    placeholder="password"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="input-field">
-            <div style={{color: 'red', marginLeft: '45px'}}>{this.state.validPassword}</div>
-            <i className="material-icons prefix">lock</i>
-            <Field
-              name="password"
-              type="text"
-              component="input"
-              autoComplete="none"
-              placeholder="password"
-            />
+          <div className='col m12 s12'>
+            <div className='box-input-signin'>
+              <div className="input-field">
+                <div style={{color: 'red', marginLeft: '45px'}}>{this.state.errorPassword}</div>
+                <i className="material-icons prefix">lock</i>
+                <input
+                  name="passwordConfirm"
+                  type="text"
+                  component="input"
+                  autoComplete="none"
+                  placeholder="password Confirm"
+                  onChange={this.handleChange}
+                />
+              </div>
+            </div>
           </div>
-
-          <div className="input-field">
-            <div style={{color: 'red', marginLeft: '45px'}}>{this.state.errorPassword}</div>
-            <i className="material-icons prefix">lock</i>
-            <input
-              name="passwordConfirm"
-              type="text"
-              component="input"
-              autoComplete="none"
-              placeholder="password Confirm"
-              onChange={this.handleChange}
-            />
-          </div>
-          
-          <button className="waves-effect waves-light btn">
-            <i className="material-icons right">cloud</i>Sign Up
-          </button>
+          <div className="center">
+            <button className="waves-effect waves-light btn btn-signin">Sign Up</button>
+          </div><br></br>
         </form>
-        <ul>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/google" className="waves-effect waves-light btn social google">
-          <i className="fab fa-google"></i> Sign in with google</a></li>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/linkedin" className="waves-effect waves-light btn social linkedin">
-          <i className="fab fa-linkedin"></i> Sign in with linkedin</a></li>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href='/auth/facebook'className="waves-effect waves-light btn social facebook">
-          <i className="fab fa-facebook"></i> Sign in with facebook</a></li>
-          <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/instagram" className="waves-effect waves-light btn social instagram">
-          <i className="fab fa-instagram"></i> Sign in with instagram</a></li>
-      </ul>
-      <div className="center">
-        <Link to='/signin'>
-          You have a Account? Sign in!
-        </Link>
-      </div>
+        <div className="center">
+           Or 
+          <p>Sign up with</p>
+          <ul>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/google" className="waves-effect waves-light btn social google">
+            <i className="fab fa-google"></i>Google</a></li>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/linkedin" className="waves-effect waves-light btn social linkedin">
+            <i className="fab fa-linkedin"></i>Linkedin</a></li>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href='/auth/facebook'className="waves-effect waves-light btn social facebook">
+            <i className="fab fa-facebook"></i>Facebook</a></li>
+            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/instagram" className="waves-effect waves-light btn social instagram">
+            <i className="fab fa-instagram"></i>Instagram</a></li>
+          </ul>
+          <Link to='/signin'>
+            You have a Account? Sign In!
+          </Link><br></br><br></br>
+        </div>
       </div>
     );
   }

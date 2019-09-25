@@ -20,7 +20,7 @@ class Signin extends React.Component {
         <form onSubmit={handleSubmit(this.onSubmit)}>
           <h4 className="center">Sign in <i className="fas fa-user-alt"></i></h4>
             <div className='row'>
-              <div className='col m12'>
+              <div className='col m12 s12'>
                 <div className='box-input-signin'>
                   <div className="input-field">
                     <div style={{color: 'red', marginLeft: '45px'}}>{this.props.errorMessage}</div>
@@ -35,7 +35,7 @@ class Signin extends React.Component {
                   </div>
                 </div>
               </div>
-              <div className='col m12'>
+              <div className='col m12 s12'>
                 <div className='box-input-signin'>
                   <div className="input-field">
                     <i className="material-icons prefix">lock</i>
@@ -50,9 +50,9 @@ class Signin extends React.Component {
                 </div>   
               </div>
             </div>
-            <div className="center">
-              <button className="waves-effect waves-light btn btn-signin">Sign In</button>
-            </div><br></br>
+          <div className="center">
+            <button className="waves-effect waves-light btn btn-signin">Sign In</button>
+          </div><br></br>
         </form>
         <div className="center">
            Or 
@@ -69,7 +69,7 @@ class Signin extends React.Component {
           </ul>
           <Link to='/signup'>
             You don't have a Account? Sign up!
-          </Link>
+          </Link><br></br><br></br>
         </div>
       </div>
     );

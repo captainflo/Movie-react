@@ -46,3 +46,9 @@ nav{
   border: 2px solid #fff;
 }
 
+@media only screen and (max-width: 600px) {
+  /* Signin */
+  .box-input-signin{
+    width: 100%;
+  }
+}

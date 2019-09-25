@@ -3,18 +3,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class Sidebar extends React.Component {
-  state = {
-    signup: false
-  };
-
-  DisplaySignup = () => {
-    this.setState({ signup: true });
-  };
-
-  DisplaySignin = () => {
-    this.setState({ signup: false });
-  };
-
   renderLinks() {
     if (this.props.authenticated) {
       return (

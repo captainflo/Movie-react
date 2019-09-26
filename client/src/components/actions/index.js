@@ -1,6 +1,6 @@
 import keys from "../../config/keys";
 import axios from "axios";
-import { AUTH_USER, AUTH_ERROR, EDIT_USER } from "./types";
+import { AUTH_USER, AUTH_ERROR, EDIT_USER, GET_MOVIES, MOVIES_ERROR, GET_MOVIE,  GET_SIMULAR_MOVIES} from "./types";
 import * as JWT from "jwt-decode";
 
 // Signup with Passport JWT
@@ -106,3 +106,45 @@ export const deleteUser = (id, callback) => async dispatch => {
   localStorage.removeItem("token");
   callback(); /* history callback */
 };
+
+// ******************************** API MOVIES ************************************************* //
+
+// Get All Movie by search
+export const getMovies = (movie) => async dispatch => {
+  try {
+  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US&query=${movie}&page=1&include_adult=false`)
+  dispatch({ type: GET_MOVIES, payload: response.data });
+  } catch (e) {
+    dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
+  }
+};
+
+// Show details Movie
+export const showMovie = (id) => async dispatch => {
+  try {
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  dispatch({ type: GET_MOVIE, payload: response.data });
+  } catch (e) {
+    dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
+  }
+};
+
+// Simular Movie by genre
+export const simularMovie = (genre) => async dispatch => {
+  try {
+  let url = `https://api.themoviedb.org/3/discover/movie?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
+  for (let i = 0; i < genre.length; i++) {
+    url += `&with_genres=${genre[i].id}`
+  }
+  const response = await axios.get(url)
+  dispatch({ type: GET_SIMULAR_MOVIES, payload: response.data });
+  } catch (e) {
+    dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
+  }
+};
+
+
+
+
+
+

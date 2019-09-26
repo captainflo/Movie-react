@@ -98,19 +98,21 @@ class Signup extends React.Component {
               </div>
             </div>
           </div>
-          <div className='col m12 s12'>
-            <div className='box-input-signin'>
-              <div className="input-field">
-                <div style={{color: 'red', marginLeft: '45px'}}>{this.state.errorPassword}</div>
-                <i className="material-icons prefix">lock</i>
-                <input
-                  name="passwordConfirm"
-                  type="text"
-                  component="input"
-                  autoComplete="none"
-                  placeholder="password Confirm"
-                  onChange={this.handleChange}
-                />
+          <div className='row'>
+            <div className='col m12 s12'>
+              <div className='box-input-signin'>
+                <div className="input-field">
+                  <div style={{color: 'red', marginLeft: '45px'}}>{this.state.errorPassword}</div>
+                  <i className="material-icons prefix">lock</i>
+                  <input
+                    name="passwordConfirm"
+                    type="text"
+                    component="input"
+                    autoComplete="none"
+                    placeholder="password Confirm"
+                    onChange={this.handleChange}
+                  />
+                </div>
               </div>
             </div>
           </div>

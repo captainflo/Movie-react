@@ -1,17 +1,18 @@
 import React from "react";
-import Header from "./Header";
+import Header from "./utils/Header";
 import { BrowserRouter, Route} from 'react-router-dom';
 import * as actions from './actions'
 import { connect } from 'react-redux';
 import M from "materialize-css/dist/js/materialize.min.js";
 import './App.css';
 
-import Welcome from './Welcome';
+import Welcome from './pages/Welcome';
 import Signout from './auth/Signout';
 import Signin from "./auth/Signin";
 import Signup from "./auth/Signup";
 import UserShow from "./user/UserShow";
 import UserEdit from "./user/UserEdit";
+import MovieShow from "./Movies/MovieShow";
 
 
 
@@ -33,6 +34,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Header />
           <Route exact path='/' component={Welcome}/>
+          <Route path='/movie/:id' component={MovieShow}/>
           <Route path="/signout" component={Signout}/>
           <Route path="/signin" component={Signin}/>
           <Route path="/signup" component={Signup}/>

@@ -24,6 +24,13 @@ nav{
   width: 45%;
 }
 
+/* Welcome */
+.movie-img img {
+  height: 180px;
+  width: 120px;
+  object-fit: cover;
+}
+
 /* UserShow */
 .avatar {
   vertical-align: middle;
@@ -47,8 +54,11 @@ nav{
 }
 
 @media only screen and (max-width: 600px) {
-  /* Signin */
+  /* Signin Signup */
   .box-input-signin{
+    width: 100%;
+  }
+  .btn-signin{
     width: 100%;
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Sidebar from "./Sidebar";
+import Sidebar from "../utils/Sidebar";
 
 class Header extends React.Component {
   renderLinks() {
@@ -41,10 +41,10 @@ class Header extends React.Component {
           <div className="nav-wrapper">
             <Link className="brand-logo" to="/">
               <i
-                style={{ paddingLeft: "15px" }}
+                style={{ paddingLeft: "25px" }}
                 className="large material-icons"
               >
-                wb_cloudy
+                movie_filter
               </i>
             </Link>
             <a href="#/" data-target="slide-out" className="sidenav-trigger">

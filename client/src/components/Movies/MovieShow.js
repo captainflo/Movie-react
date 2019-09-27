@@ -6,31 +6,39 @@ import SimularMovies from './SimularMovies';
 class MovieShow extends React.Component {
   componentDidMount() {
     this.props.showMovie(this.props.match.params.id);
+    this.props.simularMoviesByGenre(localStorage.getItem('movie'))
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
         this.props.showMovie(this.props.match.params.id);
+        this.props.simularMoviesByGenre(localStorage.getItem('movie'))
     }
   }
+
+  renderImage=(movie)=>{
+    if(movie === null){
+        return <img style={{width: '100%'}} src={process.env.PUBLIC_URL + "/images/cinema.jpg"} alt='img'/>
+    } else {
+        return <img style={{width: '100%'}} src={`https://image.tmdb.org/t/p/w500${movie}`} alt='img'/>
+    }
+}
 
   renderMovie = () => {
     const movie = this.props.movie;
     return (
-      <div key={movie.id}>
-        <p>title: {movie.original_title}</p>
-        <img
-          style={{ width: "30%" }}
-          src={
-            `https://image.tmdb.org/t/p/w500${movie.poster_path}` ||
-            process.env.PUBLIC_URL + "/images/lechef.jpg"
-          }
-          alt="avatar"
-        />
-        <p>{movie.overview}</p>
-        <p>Date: {movie.release_date}</p>
-        <a href={movie.homepage}>SiteWeb: {movie.homepage}</a>
-        <p>Genres: {this.renderListOfGenres(movie.genres)}</p>
+      <div className='row' key={movie.id}>
+        <div className='col m4 s12'>
+            {this.renderImage(movie.poster_path)}
+        </div>
+        <div className='col m8 s12'>
+            <h4>{movie.original_title}</h4>
+            <p>score: {movie.vote_average}/10</p>
+            <p>{movie.overview}</p>
+            <p>Date: {movie.release_date}</p>
+            <a href={movie.homepage}>SiteWeb: {movie.homepage}</a>
+            <p>Genres: {this.renderListOfGenres(movie.genres)}</p>
+        </div>
       </div>
     );
   };
@@ -40,14 +48,9 @@ class MovieShow extends React.Component {
       const array = [];
       for (let i = 0; i < genres.length; i++) {
         array.push(genres[i].name + " ");
+        
       }
-      return array;
-    }
-  };
-
-  renderSimularMovie = () => {
-    if (this.props.movie.genres) {
-      this.props.simularMovie(this.props.movie.genres);
+      return array
     }
   };
 
@@ -56,8 +59,7 @@ class MovieShow extends React.Component {
       <div className="container">
         {this.renderMovie()}
         <h4>Because You like this</h4>
-        {this.renderSimularMovie()}
-        <SimularMovies simumovie={this.props.simularMovies}/>
+        <SimularMovies/>
       </div>
     );
   }

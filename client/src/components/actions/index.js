@@ -121,27 +121,32 @@ export const getMovies = (movie) => async dispatch => {
 
 // Show details Movie
 export const showMovie = (id) => async dispatch => {
+  const array = []
   try {
   const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  const genres = response.data.genres
+  for (let i = 0; i < genres.length; i++) {
+    const genre = genres[i].id;
+    array.push(genre)
+  }
+  localStorage.setItem("movie", array)
   dispatch({ type: GET_MOVIE, payload: response.data });
-  } catch (e) {
+  } catch (e) { 
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
   }
 };
 
 // Simular Movie by genre
-export const simularMovie = (genre) => async dispatch => {
+export const simularMoviesByGenre = (genres) => async dispatch => {
   try {
-  let url = `https://api.themoviedb.org/3/discover/movie?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
-  for (let i = 0; i < genre.length; i++) {
-    url += `&with_genres=${genre[i].id}`
-  }
-  const response = await axios.get(url)
+  const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US&page=1&with_genres=${genres}`)
   dispatch({ type: GET_SIMULAR_MOVIES, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
   }
 };
+
+
 
 
 

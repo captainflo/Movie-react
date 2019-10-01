@@ -57,6 +57,20 @@ nav{
   border-radius: 50%;
   border: 2px solid #fff;
 }
+/* Movie Show */
+.box-cast{
+  display: block;
+  width: 150px;
+  border:1px solid #141414;
+}
+
+.box-cast img{
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
 
 @media only screen and (max-width: 600px) {
   /* Signin Signup */

@@ -4,14 +4,17 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import M from "materialize-css/dist/js/materialize.min.js";
 import axios from "axios";
+import Slider from '../utils/Slider'
 
 class Welcome extends React.Component {
   state = {
     movie: "",
-    cinema: []
+    cinema: [],
+    science: [],
   };
   componentDidMount() {
     this.fetchLastMovie();
+    this.fetchBestScience();
     var elems = document.querySelectorAll(".carousel");
     M.Carousel.init(elems, {});
   }
@@ -23,6 +26,16 @@ class Welcome extends React.Component {
       )
       .then(response => {
         this.setState({ cinema: response.data.results });
+      });
+  };
+
+  fetchBestScience = () => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/discover/movie?api_key=e5b611686829ce735cf695069e08bfa6&with_genres=878&primary_release_year=2019"
+      )
+      .then(response => {
+        this.setState({ science: response.data.results });
       });
   };
 
@@ -107,7 +120,9 @@ class Welcome extends React.Component {
         <div className="row center">{this.renderListMovies()}</div>
         <div className="row">
           <h6>What movies are in theatres</h6>
-          {this.renderLastMovie()}
+            <Slider lastMovie={this.state.cinema}/><br></br>
+            <h6>What best Science Fiction for 2019</h6>
+            <Slider lastMovie={this.state.science}/>
         </div>
       </div>
     );

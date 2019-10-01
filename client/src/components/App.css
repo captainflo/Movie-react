@@ -30,7 +30,12 @@ nav{
   width: 120px;
   object-fit: cover;
 }
-
+/* Slider */
+.box-movie{
+  padding: 10;
+  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+}
 /* UserShow */
 .avatar {
   vertical-align: middle;

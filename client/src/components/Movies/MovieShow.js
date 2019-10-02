@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import SimularMovies from './SimularMovies';
-import { Link } from "react-router-dom";
 import SliderForCast from '../utils/SliderForCast'
 
 class MovieShow extends React.Component {
@@ -47,23 +46,6 @@ class MovieShow extends React.Component {
     );
   };
 
-//   renderCast = () => {
-//     if (this.props.casts.cast !== undefined) {
-//         return this.props.casts.cast.map(cast => {
-//             return (
-//                 <div className='box-cast' key={cast.id}>
-//                     <Link to={`/`}>
-//                         {this.renderImage(cast.profile_path)}
-//                          {cast.name}
-                         
-//                     </Link>
-//                     <p>Role: {cast.character}</p>   
-//                 </div>    
-//             );
-//         });
-//         }
-//   };
-
   renderListOfGenres = genres => {
     if (genres !== undefined) {
       const array = [];
@@ -81,7 +63,6 @@ class MovieShow extends React.Component {
         {this.renderMovie()}
         <h4>Cast Movie</h4>
         <SliderForCast casts={this.props.casts.cast}/>
-        {/* {this.renderCast()} */}
         <h4>Because You like this</h4>
         <SimularMovies/>
       </div>

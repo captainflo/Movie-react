@@ -1,6 +1,6 @@
 import keys from "../../config/keys";
 import axios from "axios";
-import { AUTH_USER, AUTH_ERROR, EDIT_USER, GET_MOVIES, MOVIES_ERROR, GET_MOVIE,  GET_SIMULAR_MOVIES, GET_CAST} from "./types";
+import { AUTH_USER, AUTH_ERROR, EDIT_USER, GET_MOVIES, MOVIES_ERROR, GET_MOVIE,  GET_SIMULAR_MOVIES, GET_CAST, GET_ACTOR, GET_MOVIE_BY_ACTOR} from "./types";
 import * as JWT from "jwt-decode";
 
 // Signup with Passport JWT
@@ -151,6 +151,27 @@ export const castMovie = (movie) => async dispatch => {
   try {
   const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=e5b611686829ce735cf695069e08bfa6`)
   dispatch({ type: GET_CAST, payload: response.data });
+  } catch (e) {
+    dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
+  }
+};
+
+
+// Get Actor
+export const getActor = (actor_id) => async dispatch => {
+  try {
+  const response = await axios.get(`https://api.themoviedb.org/3/person/${actor_id}?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  dispatch({ type: GET_ACTOR, payload: response.data });
+  } catch (e) {
+    dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
+  }
+};
+
+// Get AllMovie by actor
+export const getMovieByActor = (actor_id) => async dispatch => {
+  try {
+  const response = await axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  dispatch({ type: GET_MOVIE_BY_ACTOR, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
   }

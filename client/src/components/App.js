@@ -13,13 +13,13 @@ import Signup from "./auth/Signup";
 import UserShow from "./user/UserShow";
 import UserEdit from "./user/UserEdit";
 import MovieShow from "./Movies/MovieShow";
+import Cast from "./Movies/Cast";
 
 
 
 class App extends React.Component {
   componentDidMount(){
     this.props.fetchUser();
-    console.log(this.props.authenticated);
     // Sidebar
     const elem = document.querySelector(".sidenav");
     M.Sidenav.init(elem, {
@@ -35,6 +35,7 @@ class App extends React.Component {
           <Header />
           <Route exact path='/' component={Welcome}/>
           <Route path='/movie/:id' component={MovieShow}/>
+          <Route path='/cast/:id' component={Cast}/>
           <Route path="/signout" component={Signout}/>
           <Route path="/signin" component={Signin}/>
           <Route path="/signup" component={Signup}/>

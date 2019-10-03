@@ -7,8 +7,8 @@ export default class SimpleSlider extends Component {
         if (this.props.lastMovie !== '') {
             return this.props.lastMovie.map(movie => {
               return (
-                 <div>
-                <Link to={`/movie/${movie.id}`} key={movie.id}>
+                 <div key={movie.id}>
+                <Link to={`/movie/${movie.id}`}>
                   <img
                     style={{width:'90%'}}
                     className='box-movie'   

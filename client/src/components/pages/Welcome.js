@@ -92,37 +92,42 @@ class Welcome extends React.Component {
   };
 
   render() {
-    console.log(this.state.cinema);
     return (
-      <div className="container">
+      <div>
+        <div class="card-category">
         <form>
           <div className="row">
             <div className="col m12 s12">
-              <div className="input-field col s6">
-                <input
-                  onChange={e => this.handleType(e)}
-                  value={this.state.movie}
-                  id="movie"
-                  type="text"
-                  className="validate"
-                />
-                <label htmlFor="movie">Search Movie</label>
+              <div className='box-search'>
+                <div className="input-field col s6">
+                  <input
+                    onChange={e => this.handleType(e)}
+                    value={this.state.movie}
+                    id="movie"
+                    type="text"
+                    className="validate"
+                  />
+                  <label htmlFor="movie">Search Movie</label>
+                </div>
+                <button
+                  onClick={this.onSubmit}
+                  className="waves-effect waves-light btn "
+                >
+                  Search
+                </button>
               </div>
-              <button
-                onClick={this.onSubmit}
-                className="waves-effect waves-light btn "
-              >
-                Search
-              </button>
             </div>
           </div>
         </form>
+        </div>
+        <div className="container">
         <div className="row center">{this.renderListMovies()}</div>
         <div className="row">
           <h6>What movies are in theatres</h6>
             <Slider lastMovie={this.state.cinema}/><br></br>
             <h6>What best Science Fiction for 2019</h6>
             <Slider lastMovie={this.state.science}/>
+        </div>
         </div>
       </div>
     );

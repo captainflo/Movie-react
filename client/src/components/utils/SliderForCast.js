@@ -7,8 +7,8 @@ export default class SliderForCast extends Component {
     if (this.props.casts !== undefined) {
       return this.props.casts.map(cast => {
         return (
-          <div className="box-cast">
-            <Link to={`/cast/${cast.id}`} key={cast.id}>
+          <div  key={cast.id} className="box-cast">
+            <Link to={`/cast/${cast.id}`}>
               {this.renderImage(cast.profile_path)}
             </Link>
           </div>

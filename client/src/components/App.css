@@ -3,9 +3,11 @@ body{
   background: #141414;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #232526, #141414);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #232526, #141414); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: #fff
+  color: #fff 
 }
-
+input, input[type=text]:not(.browser-default).validate+label, input.valid[type=text]:not(.browser-default),input[type=text]:not(.browser-default):focus:not([readonly]) {
+  color: #fff !important;
+}
 /* Navbar */
 nav{
   background-color: transparent  !important;
@@ -30,6 +32,36 @@ nav{
   width: 120px;
   object-fit: cover;
 }
+
+/* Search Bar */
+.box-search{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+}
+
+.box-search button{
+  margin-top: 25px;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://cdn.pixabay.com/photo/2018/09/24/17/34/cinema-3700446_1280.png);
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
 /* Slider */
 .box-movie{
   padding: 10;

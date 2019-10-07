@@ -128,10 +128,6 @@ class Signup extends React.Component {
             <i className="fab fa-google"></i>Google</a></li>
             <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/linkedin" className="waves-effect waves-light btn social linkedin">
             <i className="fab fa-linkedin"></i>Linkedin</a></li>
-            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href='/auth/facebook'className="waves-effect waves-light btn social facebook">
-            <i className="fab fa-facebook"></i>Facebook</a></li>
-            <li style={{listStyle:'none', paddingBottom: '10px'}}><a href="/auth/instagram" className="waves-effect waves-light btn social instagram">
-            <i className="fab fa-instagram"></i>Instagram</a></li>
           </ul>
           <Link to='/signin'>
             You have a Account? Sign In!

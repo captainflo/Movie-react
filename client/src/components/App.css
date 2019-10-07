@@ -12,6 +12,16 @@ input, input[type=text]:not(.browser-default).validate+label, input.valid[type=t
 nav{
   background-color: transparent  !important;
 }
+
+.card{
+  color: black;
+  padding: 10px;
+}
+
+.card input, .card input[type=text]:not(.browser-default).validate+label, .card input.valid[type=text]:not(.browser-default), .card input[type=text]:not(.browser-default):focus:not([readonly]){
+  color: black !important;
+}
+
 /* Signin */
 .box-input-signin{
   display: block;

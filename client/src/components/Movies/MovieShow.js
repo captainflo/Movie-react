@@ -13,9 +13,9 @@ class MovieShow extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id !== prevProps.match.params.id) {
-        this.props.showMovie(this.props.match.params.id);
-        this.props.castMovie(this.props.match.params.id)
         this.props.simularMoviesByGenre(localStorage.getItem('movie'))
+        this.props.showMovie(this.props.match.params.id);
+        this.props.castMovie(this.props.match.params.id);
     }
   }
 

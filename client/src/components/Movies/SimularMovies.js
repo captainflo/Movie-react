@@ -4,6 +4,10 @@ import * as actions from "../actions";
 import { Link } from "react-router-dom";
 
 class SimularMovies extends React.Component {
+  componentDidUpdate() {
+    this.props.simularMoviesByGenre(localStorage.getItem('movie'))
+  }
+
   renderImage=(movie)=>{
     if(movie === null){
         return <img src={process.env.PUBLIC_URL + "/images/cinema.jpg"} alt='img'/>

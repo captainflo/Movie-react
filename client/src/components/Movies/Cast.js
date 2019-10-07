@@ -15,7 +15,9 @@ class Cast extends React.Component {
             return (
                 <div className='row' key={actor.id}>
                   <div className='col m4 s12'>
+                  <div className='box-image'>
                       {this.renderImage(actor.profile_path)}
+                  </div>
                   </div>
                   <div className='col m8 s12'>
                       <h4>{actor.name}</h4>
@@ -31,9 +33,9 @@ class Cast extends React.Component {
     
     renderImage=(movie)=>{
         if(movie === null){
-            return <img style={{width: '100%'}} src={process.env.PUBLIC_URL + "/images/cinema.jpg"} alt='img'/>
+            return <img src={process.env.PUBLIC_URL + "/images/cinema.jpg"} alt='img'/>
         } else {
-            return <img style={{width: '100%'}} src={`https://image.tmdb.org/t/p/w500${movie}`} alt='img'/>
+            return <img src={`https://image.tmdb.org/t/p/w500${movie}`} alt='img'/>
         }
     }
 

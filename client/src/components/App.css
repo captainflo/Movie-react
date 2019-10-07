@@ -101,8 +101,14 @@ nav{
   width: 100%;
   object-fit: cover;
 }
+/* Cast */
 
-
+.box-image img{
+  display: block;
+  height: auto;
+  width: 70%;
+  object-fit: cover;
+}
 
 @media only screen and (max-width: 600px) {
   /* Signin Signup */

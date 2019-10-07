@@ -32,7 +32,7 @@ class MovieShow extends React.Component {
     return (
       <div className='row' key={movie.id}>
         <div className='col m4 s12'>
-            {this.renderImage(movie.poster_path)}
+          {this.renderImage(movie.poster_path)}
         </div>
         <div className='col m8 s12'>
             <h4>{movie.original_title}</h4>

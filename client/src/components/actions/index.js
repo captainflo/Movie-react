@@ -112,7 +112,7 @@ export const deleteUser = (id, callback) => async dispatch => {
 // Get All Movie by search
 export const getMovies = (movie) => async dispatch => {
   try {
-  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US&query=${movie}&page=1&include_adult=false`)
+  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${keys.api}&language=en-US&query=${movie}&page=1&include_adult=false`)
   dispatch({ type: GET_MOVIES, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
@@ -123,7 +123,7 @@ export const getMovies = (movie) => async dispatch => {
 export const showMovie = (id) => async dispatch => {
   const array = []
   try {
-  const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${keys.api}&language=en-US`)
   const genres = response.data.genres
   for (let i = 0; i < genres.length; i++) {
     const genre = genres[i].id;
@@ -139,7 +139,7 @@ export const showMovie = (id) => async dispatch => {
 // Simular Movie by genre
 export const simularMoviesByGenre = (genres) => async dispatch => {
   try {
-  const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US&page=1&with_genres=${genres}`)
+  const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${keys.api}&language=en-US&page=1&with_genres=${genres}`)
   dispatch({ type: GET_SIMULAR_MOVIES, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
@@ -149,7 +149,7 @@ export const simularMoviesByGenre = (genres) => async dispatch => {
 // Simular Movie by genre
 export const castMovie = (movie) => async dispatch => {
   try {
-  const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=e5b611686829ce735cf695069e08bfa6`)
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${keys.api}`)
   dispatch({ type: GET_CAST, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
@@ -160,7 +160,7 @@ export const castMovie = (movie) => async dispatch => {
 // Get Actor
 export const getActor = (actor_id) => async dispatch => {
   try {
-  const response = await axios.get(`https://api.themoviedb.org/3/person/${actor_id}?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  const response = await axios.get(`https://api.themoviedb.org/3/person/${actor_id}?api_key=${keys.api}&language=en-US`)
   dispatch({ type: GET_ACTOR, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });
@@ -170,7 +170,7 @@ export const getActor = (actor_id) => async dispatch => {
 // Get AllMovie by actor
 export const getMovieByActor = (actor_id) => async dispatch => {
   try {
-  const response = await axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=e5b611686829ce735cf695069e08bfa6&language=en-US`)
+  const response = await axios.get(`https://api.themoviedb.org/3/person/${actor_id}/movie_credits?api_key=${keys.api}&language=en-US`)
   dispatch({ type: GET_MOVIE_BY_ACTOR, payload: response.data });
   } catch (e) {
     dispatch({ type: MOVIES_ERROR, payload: "error fetch movie" });

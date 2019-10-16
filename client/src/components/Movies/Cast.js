@@ -40,7 +40,6 @@ class Cast extends React.Component {
     }
 
     render(){
-        console.log(this.props.movieByActor)
         return(
             <div>
                 {this.renderActor()}

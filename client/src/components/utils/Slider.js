@@ -30,9 +30,6 @@ export default class SimpleSlider extends Component {
         slidesToScroll: 4,
 
       };
-
-    
-        console.log(this.props.lastMovie)
     return (
       <div>
         

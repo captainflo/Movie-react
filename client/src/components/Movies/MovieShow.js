@@ -71,7 +71,6 @@ class MovieShow extends React.Component {
 }
 
 function mapStateToProps(state) {
-    console.log(state)
   return {
     auth: state.auth.authenticated,
     movie: state.movies.movie,

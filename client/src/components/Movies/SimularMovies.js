@@ -26,6 +26,7 @@ class SimularMovies extends React.Component {
             </Link>
           );
         }
+        return null
       });
     }
   };

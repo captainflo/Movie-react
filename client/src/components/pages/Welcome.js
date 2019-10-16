@@ -94,7 +94,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <div>
-        <div class="card-category">
+        <div className="card-category">
         <form>
           <div className="row">
             <div className="col m12 s12">

@@ -25,7 +25,6 @@ class MovieByActor extends Component {
     }
 
   render() {   
-        console.log(this.props.movieByActor)
     return (
       <div>
           <h4>Movie {} played</h4>

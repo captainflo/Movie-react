@@ -18,7 +18,7 @@ app.use(bodyParser.json({ type: '*/*' })); /* used to parse incoming requests */
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
+    keys: [keys.cookieKey],
   })
 );
 app.use(cors());
@@ -31,7 +31,7 @@ require('./routes/authRoutes')(app);
 // Connect Mongo Atlas
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 if (process.env.NODE_ENV === 'production') {

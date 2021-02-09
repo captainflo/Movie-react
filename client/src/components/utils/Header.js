@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import Sidebar from "../utils/Sidebar";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Sidebar from '../utils/Sidebar';
 
 class Header extends React.Component {
   renderLinks() {
@@ -17,7 +17,7 @@ class Header extends React.Component {
                 className="avatar"
                 src={
                   this.props.authenticated.avatar ||
-                  process.env.PUBLIC_URL + "/images/background.jpg"
+                  process.env.PUBLIC_URL + '/images/background.jpg'
                 }
                 alt="background"
               />
@@ -28,7 +28,7 @@ class Header extends React.Component {
     } else {
       return (
         <div>
-          <Link to='/signin'>login</Link>
+          <Link to="/signin">login</Link>
         </div>
       );
     }
@@ -41,7 +41,7 @@ class Header extends React.Component {
           <div className="nav-wrapper">
             <Link className="brand-logo" to="/">
               <i
-                style={{ paddingLeft: "25px" }}
+                style={{ paddingLeft: '25px' }}
                 className="large material-icons"
               >
                 movie_filter
@@ -50,9 +50,9 @@ class Header extends React.Component {
             <a href="#/" data-target="slide-out" className="sidenav-trigger">
               <i className="material-icons">menu</i>
             </a>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
+            {/* <ul id="nav-mobile" className="right hide-on-med-and-down">
               {this.renderLinks()}
-            </ul>
+            </ul> */}
           </div>
         </nav>
         <Sidebar />
@@ -63,7 +63,7 @@ class Header extends React.Component {
 
 function mapStateToPros(state) {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
   };
 }
 
